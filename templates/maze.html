@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze DFS Solver</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Maze DFS Solver</h1>
+        <div class="controls">
+            <label for="mazeWidth">Width (Odd number, e.g., 31-61):</label>
+            <input type="number" id="mazeWidth" value="31" min="5" max="61">
+            <label for="mazeHeight">Height (Odd number, e.g., 31-61):</label>
+            <input type="number" id="mazeHeight" value="31" min="5" max="61">
+            <button id="generateSolveMaze">Generate & Solve</button>
+        </div>
+        <div class="results">
+            <p>Time Taken: <span id="mazeTime"></span></p>
+            <p>Memory Used: <span id="mazeMemory"></span></p>
+        </div>
+        <div class="maze-visualization">
+            <h2 id="mazeStatus"></h2>
+            <div id="mazeGrid"></div>
+        </div>
+        <a href="/" class="back-button">Back to Home</a>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

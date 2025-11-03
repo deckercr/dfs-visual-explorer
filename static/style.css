@@ -1,0 +1,385 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 1000px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+h1, h2 {
+    color: #5a4a8f;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.4em;
+    margin: 20px 0 10px 0;
+}
+
+.puzzle-options {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.puzzle-options a {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.puzzle-options a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+button, .button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #8e54e9 0%, #4776e6 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1em;
+    box-shadow: 0 4px 15px rgba(142, 84, 233, 0.4);
+}
+
+button:hover, .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(142, 84, 233, 0.6);
+    background: linear-gradient(135deg, #4776e6 0%, #8e54e9 100%);
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #9d50bb 0%, #6e48aa 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(157, 80, 187, 0.4);
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(157, 80, 187, 0.6);
+    background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+}
+
+.controls {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f7fc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.controls label {
+    font-weight: bold;
+    color: #5a4a8f;
+    margin-right: 10px;
+}
+
+.controls input {
+    padding: 8px 12px;
+    border: 2px solid #b8a9d8;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 200px;
+    transition: border-color 0.3s ease;
+}
+
+.controls input:focus {
+    outline: none;
+    border-color: #8e54e9;
+}
+
+.results {
+    margin-top: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #f8f7fc 0%, #e9e4f5 100%);
+    border-radius: 8px;
+    text-align: left;
+    border: 2px solid #b8a9d8;
+}
+
+.results p {
+    margin: 5px 0;
+    font-weight: bold;
+    color: #5a4a8f;
+}
+
+/* Tower of Hanoi Specific */
+.hanoi-visualization {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 250px;
+    margin: 20px auto;
+    border-bottom: 5px solid #5a4a8f;
+    position: relative;
+    padding-bottom: 10px;
+    max-width: 800px;
+}
+
+.peg {
+    position: relative;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 10px;
+    padding-top: 20px;
+}
+
+.peg-pole {
+    width: 10px;
+    height: 180px;
+    background: linear-gradient(180deg, #8e54e9 0%, #5a4a8f 100%);
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.peg-base {
+    width: 100%;
+    height: 20px;
+    background-color: #5a4a8f;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    border-radius: 3px;
+}
+
+.disk {
+    height: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 5px;
+    margin-bottom: 2px;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    z-index: 2;
+    border: 2px solid #5a4a8f;
+}
+
+.disk:nth-child(even) { 
+    background: linear-gradient(135deg, #8e54e9 0%, #4776e6 100%);
+}
+.disk:nth-child(odd) { 
+    background: linear-gradient(135deg, #9d50bb 0%, #6e48aa 100%);
+}
+
+.moves-list {
+    margin-top: 30px;
+    text-align: left;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 2px solid #b8a9d8;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f8f7fc;
+}
+
+.moves-list ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+    color: #5a4a8f;
+}
+
+/* Sudoku Specific */
+.sudoku-grid-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.sudoku-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sudoku-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 35px);
+    grid-template-rows: repeat(9, 35px);
+    width: 315px;
+    height: 315px;
+    border: 3px solid #5a4a8f;
+    margin: 10px auto;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.sudoku-cell {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #b8a9d8;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #5a4a8f;
+    box-sizing: border-box;
+}
+
+.sudoku-cell.filled {
+    background-color: #f8f7fc;
+}
+
+.sudoku-cell.solution-cell {
+    color: #8e54e9;
+    font-weight: bold;
+}
+
+.sudoku-grid .sudoku-cell:nth-child(3n) {
+    border-right: 2px solid #5a4a8f;
+}
+.sudoku-grid .sudoku-cell:nth-child(9n) {
+    border-right: 1px solid #b8a9d8;
+}
+.sudoku-grid .sudoku-cell:nth-child(n+19):nth-child(-n+27),
+.sudoku-grid .sudoku-cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 2px solid #5a4a8f;
+}
+.sudoku-grid .sudoku-cell:nth-child(27), .sudoku-grid .sudoku-cell:nth-child(54) {
+    border-bottom: 2px solid #5a4a8f;
+}
+
+.sudoku-grid {
+    border-left: 3px solid #5a4a8f;
+    border-top: 3px solid #5a4a8f;
+}
+.sudoku-grid > div:nth-child(9n) {
+    border-right: 3px solid #5a4a8f;
+}
+.sudoku-grid > div:nth-last-child(-n+9) {
+    border-bottom: 3px solid #5a4a8f;
+}
+
+/* Maze Specific */
+.maze-visualization {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mazeStatus {
+    color: #8e54e9;
+    font-weight: bold;
+}
+
+#mazeGrid {
+    display: grid;
+    border: 3px solid #5a4a8f;
+    margin-top: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.maze-cell {
+    width: 12px;
+    height: 12px;
+    background-color: #f8f7fc;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.maze-cell.wall {
+    background-color: #5a4a8f;
+}
+
+.maze-cell.start {
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+}
+
+.maze-cell.end {
+    background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+}
+
+.maze-cell.path {
+    background: linear-gradient(135deg, #8e54e9 0%, #4776e6 100%);
+    animation: pulse-path 1.5s infinite alternate;
+}
+
+@keyframes pulse-path {
+    from { opacity: 0.7; }
+    to { opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .sudoku-grid {
+        grid-template-columns: repeat(9, 30px);
+        grid-template-rows: repeat(9, 30px);
+        width: 270px;
+        height: 270px;
+    }
+    
+    .sudoku-cell {
+        width: 30px;
+        height: 30px;
+        font-size: 1em;
+    }
+    
+    .hanoi-visualization {
+        height: 200px;
+    }
+    
+    .peg-pole {
+        height: 140px;
+    }
+}

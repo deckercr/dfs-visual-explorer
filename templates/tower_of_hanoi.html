@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower of Hanoi DFS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Tower of Hanoi DFS Solver</h1>
+        <div class="controls">
+            <label for="numDisks">Number of Disks (Max 18 for safety):</label>
+            <input type="number" id="numDisks" value="10" min="1">
+            <button id="generateSolveHanoi">Generate & Solve</button>
+        </div>
+        <div class="results">
+            <p>Time Taken: <span id="hanoiTime"></span></p>
+            <p>Memory Used: <span id="hanoiMemory"></span></p>
+        </div>
+        <div class="hanoi-visualization">
+            <div class="peg" id="pegA">
+                <div class="peg-pole"></div>
+                <div class="peg-base"></div>
+            </div>
+            <div class="peg" id="pegB">
+                <div class="peg-pole"></div>
+                <div class="peg-base"></div>
+            </div>
+            <div class="peg" id="pegC">
+                <div class="peg-pole"></div>
+                <div class="peg-base"></div>
+            </div>
+        </div>
+        <div class="moves-list">
+            <h2>Solution Steps:</h2>
+            <ol id="hanoiMoves"></ol>
+        </div>
+        <a href="/" class="back-button">Back to Home</a>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
